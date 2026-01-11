@@ -71,7 +71,7 @@ export default function StudyPage() {
             x: direction < 0 ? 500 : -500,
             opacity: 0,
             scale: 0.8,
-        },),
+        }),
     }
 
     return (
