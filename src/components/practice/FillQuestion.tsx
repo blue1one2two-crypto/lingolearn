@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
-import { Input } from '@/components/ui/Input' // I should create this or use raw input
 
 export const FillQuestion = ({
     chinese,
