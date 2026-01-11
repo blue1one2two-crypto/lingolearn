@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LingoLearn Web
 
-## Getting Started
+A modern, cross-platform vocabulary learning application built with Next.js 14 and Supabase.
 
-First, run the development server:
+## ✨ Features
+
+- 📚 **3D Flashcards** - Interactive word cards with flip animations
+- 🧠 **SM-2 Algorithm** - Optimized spaced repetition for retention
+- 🎯 **Multiple Practice Modes** - Choice, fill-in-the-blank, and listening quizzes
+- 📊 **Progress Tracking** - Visual charts and statistics
+- 🔊 **Text-to-Speech** - Native pronunciation using Web Speech API
+- 🌙 **Dark Mode** - Modern, eye-friendly design
+- 📱 **PWA Ready** - Install on any device
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Charts**: Recharts
+- **Database**: Supabase (PostgreSQL)
+- **Auth**: Supabase OAuth (GitHub, Google)
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm
+- Supabase account
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local with your Supabase credentials
+
+# Run database migrations in Supabase SQL Editor
+# (see supabase/migrations/001_initial_schema.sql)
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                  # Next.js App Router pages
+│   ├── (dashboard)/      # Main application pages
+│   ├── auth/             # OAuth callback
+│   └── login/            # Login page
+├── components/           # React components
+│   ├── auth/             # Authentication
+│   ├── practice/         # Quiz components
+│   ├── progress/         # Charts and stats
+│   ├── study/            # Word cards
+│   └── ui/               # Reusable UI
+├── hooks/                # Custom React hooks
+└── lib/                  # Utilities and algorithms
+    ├── algorithms/       # SM-2 implementation
+    ├── supabase/         # Supabase clients
+    └── utils/            # Helper functions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚢 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Vercel (Recommended)
 
-## Deploy on Vercel
+1. Push to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables
+4. Deploy!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Supabase Configuration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+After deployment, update your Supabase project:
+- **Site URL**: `https://your-app.vercel.app`
+- **Redirect URLs**: `https://your-app.vercel.app/auth/callback`
+
+## 📝 License
+
+MIT
